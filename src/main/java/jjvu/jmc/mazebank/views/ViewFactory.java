@@ -15,11 +15,15 @@ public class ViewFactory {
     private final StringProperty clientSelectedMenuItem;
     private AnchorPane dashboardView;
     private AnchorPane transactionsView;
+    private AnchorPane accountsView;
 
     public ViewFactory() {
         this.clientSelectedMenuItem = new SimpleStringProperty("");
     }
 
+    /*
+    * Client View Section
+    * */
     public StringProperty getClientSelectedMenuItem() {
         return clientSelectedMenuItem;
     }
@@ -44,6 +48,17 @@ public class ViewFactory {
             }
         }
         return transactionsView;
+    }
+
+    public AnchorPane getAccountsView() {
+        if (accountsView == null) {
+            try {
+                accountsView = new FXMLLoader(getClass().getResource("/fxml/client/Accounts.fxml")).load();
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+        }
+        return accountsView;
     }
 
     private void createStage(FXMLLoader loader) {

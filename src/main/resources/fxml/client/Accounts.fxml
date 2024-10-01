@@ -8,48 +8,52 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="accounts_view_container" stylesheets="@../../styles/Accounts.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jjvu.jmc.mazebank.controllers.client.AccountsController">
-   <children>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Checking Account" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
-      <VBox prefHeight="300.0" prefWidth="450.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="40.0">
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Account Number:" />
-            <Label text="3452 4950" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Transaction Limit:" />
-            <Label text="10" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date Created:" />
-            <Label text="2024-01-10" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Balance" />
-            <Label text="\$3,000.00" />
-         </children>
-      </VBox>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Savings Account" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="364.0" />
-      <VBox layoutX="24.0" layoutY="50.0" prefHeight="300.0" prefWidth="450.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="14.0">
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Account Number:" />
-            <Label text="3452 4950" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Widthdrawal Limit:" />
-            <Label text="\$2,000.00" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date Created:" />
-            <Label text="2024-01-10" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Balance" />
-            <Label text="\$12,000.00" />
-         </children>
-      </VBox>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Move Funds to Saving Account:" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="38.0" />
-      <TextField prefHeight="26.0" prefWidth="221.0" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="72.0" />
-      <Button mnemonicParsing="false" prefHeight="26.0" prefWidth="221.0" text="Transfer" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="123.0">
-         <graphic>
-            <FontAwesomeIconView fill="WHITE" glyphName="ARROW_DOWN" size="20" />
-         </graphic>
-      </Button>
-      <Text layoutX="483.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Move Funds to Saving Account:" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="364.0" />
-      <TextField layoutX="475.0" layoutY="82.0" prefHeight="26.0" prefWidth="221.0" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="392.0" />
-      <Button layoutX="475.0" layoutY="133.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="221.0" text="Transfer" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="441.0">
-         <graphic>
-            <FontAwesomeIconView fill="WHITE" glyphName="ARROW_UP" size="20" text="" />
-         </graphic>
-      </Button>
-   </children>
+<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="accounts_view_container"
+            stylesheets="@../../styles/Accounts.css" xmlns="http://javafx.com/javafx/23"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="jjvu.jmc.mazebank.controllers.client.AccountsController">
+   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Checking Account" AnchorPane.leftAnchor="14.0"
+         AnchorPane.topAnchor="14.0"/>
+   <VBox prefHeight="300.0" prefWidth="450.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="40.0">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Account Number:"/>
+      <Label fx:id="checkingAccountNumber" text="3452 4950"/>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Transaction Limit:"/>
+      <Label fx:id="transactionLimit" text="10"/>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date Created:"/>
+      <Label fx:id="checkingAccountDate" text="2024-01-10"/>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Balance"/>
+      <Label fx:id="checkingAccountBalance" text="\$3,000.00"/>
+   </VBox>
+   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Savings Account" AnchorPane.leftAnchor="14.0"
+         AnchorPane.topAnchor="364.0"/>
+   <VBox layoutX="24.0" layoutY="50.0" prefHeight="300.0" prefWidth="450.0" AnchorPane.bottomAnchor="60.0"
+         AnchorPane.leftAnchor="14.0">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Account Number:"/>
+      <Label fx:id="savingsAccountNumber" text="3452 4950"/>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Widthdrawal Limit:"/>
+      <Label fx:id="withdrawalLimit" text="\$2,000.00"/>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date Created:"/>
+      <Label fx:id="savingsAccountDate" text="2024-01-10"/>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Balance"/>
+      <Label fx:id="savingsAccountBalance" text="\$12,000.00"/>
+   </VBox>
+   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Move Funds to Saving Account:" AnchorPane.rightAnchor="164.0"
+         AnchorPane.topAnchor="38.0"/>
+   <TextField fx:id="amountToSavings" prefHeight="26.0" prefWidth="221.0" AnchorPane.rightAnchor="164.0"
+              AnchorPane.topAnchor="72.0"/>
+   <Button fx:id="transferToSavingsButton" mnemonicParsing="false" prefHeight="26.0" prefWidth="221.0" text="Transfer"
+           AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="123.0">
+      <graphic>
+         <FontAwesomeIconView fill="WHITE" glyphName="ARROW_DOWN" size="20"/>
+      </graphic>
+   </Button>
+   <Text layoutX="483.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Move Funds to Saving Account:"
+         AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="364.0"/>
+   <TextField fx:id="amountToChecking" layoutX="475.0" layoutY="82.0" prefHeight="26.0" prefWidth="221.0"
+              AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="392.0"/>
+   <Button fx:id="transferToCheckingButton" layoutX="475.0" layoutY="133.0" mnemonicParsing="false" prefHeight="26.0"
+           prefWidth="221.0" text="Transfer" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="441.0">
+      <graphic>
+         <FontAwesomeIconView fill="WHITE" glyphName="ARROW_UP" size="20"/>
+      </graphic>
+   </Button>
 </AnchorPane>
