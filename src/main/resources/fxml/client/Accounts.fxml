@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="750.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jjvu.jmc.mazebank.controllers.client.AccountsController">
+   <children>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Checking Account" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
+      <VBox prefHeight="300.0" prefWidth="450.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="40.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Account Number:" />
+            <Label text="3452 4950" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Transaction Limit:" />
+            <Label text="10" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date Created:" />
+            <Label text="2024-01-10" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Balance" />
+            <Label text="\$3,000.00" />
+         </children>
+      </VBox>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Savings Account" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="364.0" />
+      <VBox layoutX="24.0" layoutY="50.0" prefHeight="300.0" prefWidth="450.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="14.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Account Number:" />
+            <Label text="3452 4950" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Widthdrawal Limit:" />
+            <Label text="\$2,000.00" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date Created:" />
+            <Label text="2024-01-10" />
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Balance" />
+            <Label text="\$12,000.00" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
