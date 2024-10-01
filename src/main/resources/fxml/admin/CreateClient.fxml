@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="750.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jjvu.jmc.mazebank.controllers.admin.CreateClientController">
+<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="create_client_container" stylesheets="@../../styles/CreateClient.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jjvu.jmc.mazebank.controllers.admin.CreateClientController">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Create New Client Account" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
       <VBox fillWidth="false" prefHeight="700.0" prefWidth="600.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="40.0">
@@ -22,7 +22,7 @@
             <TextField />
             <Text layoutX="10.0" layoutY="106.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payee Address:" />
             <CheckBox mnemonicParsing="false" />
-            <Label text="Label" />
+            <Label styleClass="payee_address_label" text="Label" />
             <Text layoutX="10.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accounts:" />
             <CheckBox mnemonicParsing="false" text="Add Checking Account" />
             <Text layoutX="10.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Checking Account Balance:" />
@@ -31,7 +31,7 @@
             <Text layoutX="10.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Savings Account Balance:" />
             <TextField layoutX="10.0" layoutY="236.0" />
             <Button mnemonicParsing="false" text="Create New Client" />
-            <Label layoutX="10.0" layoutY="170.0" text="Error:" />
+            <Label layoutX="10.0" layoutY="170.0" styleClass="error_label" text="Error:" />
          </children>
       </VBox>
    </children>
