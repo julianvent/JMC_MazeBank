@@ -65,14 +65,12 @@
    <VBox prefHeight="180.0" prefWidth="210.0" styleClass="summary_view" AnchorPane.rightAnchor="0.0"
          AnchorPane.topAnchor="120.0">
       <VBox prefHeight="200.0" prefWidth="100.0" styleClass="account_summary_container">
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Income"/>
-            <Text fx:id="incomeLabel" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="income_amount"
-                  text="+ $4000.00"/>
-            <Line endX="160.0"/>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Expenses"/>
-            <Label fx:id="expenseLabel" styleClass="expense_amount" text="- $1500.00"/>
-         </children>
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Income"/>
+         <Text fx:id="incomeLabel" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="income_amount"
+               text="+ $4000.00"/>
+         <Line endX="160.0"/>
+         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Expenses"/>
+         <Label fx:id="expenseLabel" styleClass="expense_amount" text="- $1500.00"/>
       </VBox>
    </VBox>
    <Text layoutX="16.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="section_title"
