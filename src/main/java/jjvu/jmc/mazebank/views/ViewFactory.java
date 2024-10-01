@@ -6,9 +6,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import jjvu.jmc.mazebank.controllers.client.ClientController;
 
+import java.io.IOException;
+
 public class ViewFactory {
     // Client Views
     private AnchorPane dashboardView;
+    private AnchorPane transactionsView;
 
     public ViewFactory() {}
 
@@ -16,11 +19,22 @@ public class ViewFactory {
         if (dashboardView == null) {
             try {
                 dashboardView = new FXMLLoader(getClass().getResource("/fxml/client/Dashboard.fxml")).load();
-            } catch (Exception e) {
-                e.printStackTrace();
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
             }
         }
         return dashboardView;
+    }
+
+    public AnchorPane getTransactionsView() {
+        if (transactionsView == null) {
+            try {
+                transactionsView = new FXMLLoader(getClass().getResource("/fxml/client/Transactions.fxml")).load();
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+        }
+        return transactionsView;
     }
 
     private void createStage(FXMLLoader loader) {
