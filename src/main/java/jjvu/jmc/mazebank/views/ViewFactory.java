@@ -50,4 +50,8 @@ public class ViewFactory {
 
         createStage(loader);
     }
+
+    public void closeStage(Stage stage) {
+        stage.close();
+    }
 }
