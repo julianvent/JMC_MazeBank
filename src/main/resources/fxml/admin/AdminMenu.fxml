@@ -7,34 +7,37 @@
 <?import javafx.scene.text.Text?>
 
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="750.0" prefWidth="180.0"
+      styleClass="main_menu_container" stylesheets="@../../styles/ClientMenu.css"
+      xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="jjvu.jmc.mazebank.controllers.admin.AdminMenuController">
    <children>
-      <AnchorPane prefHeight="730.0" prefWidth="160.0">
+      <AnchorPane prefHeight="730.0" prefWidth="160.0" styleClass="left_container">
          <children>
-            <VBox prefHeight="80.0" prefWidth="160.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <VBox prefHeight="80.0" prefWidth="160.0" styleClass="title_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <FontAwesomeIconView glyphName="BANK" size="30" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Maze Bank" />
                </children>
             </VBox>
-            <VBox prefHeight="400.0" prefWidth="160.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+            <VBox prefHeight="400.0" prefWidth="160.0" styleClass="menu_container" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
                <children>
-                  <Button mnemonicParsing="false" text="Create Client">
+                  <Button fx:id="createClientButton" mnemonicParsing="false" text="Create Client">
                      <graphic>
                         <FontAwesomeIconView glyphName="PLUS" size="20" />
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" text="Clients">
+                  <Button fx:id="listClientsButton" mnemonicParsing="false" text="Clients">
                      <graphic>
                         <FontAwesomeIconView glyphName="LIST" size="20" />
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" text="Deposit">
+                  <Button fx:id="depositButton" mnemonicParsing="false" text="Deposit">
                      <graphic>
                         <FontAwesomeIconView glyphName="MONEY" size="20" />
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" text="Logout">
+                  <Button fx:id="logoutButton" mnemonicParsing="false" styleClass="alt_menu_button" text="Logout">
                      <graphic>
                         <FontAwesomeIconView glyphName="EXTERNAL_LINK" size="20" />
                      </graphic>
