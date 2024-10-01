@@ -48,7 +48,7 @@
       <TextField layoutX="475.0" layoutY="82.0" prefHeight="26.0" prefWidth="221.0" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="392.0" />
       <Button layoutX="475.0" layoutY="133.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="221.0" text="Transfer" AnchorPane.rightAnchor="164.0" AnchorPane.topAnchor="441.0">
          <graphic>
-            <FontAwesomeIconView fill="WHITE" glyphName="ARROW_DOWN" size="20" />
+            <FontAwesomeIconView fill="WHITE" glyphName="ARROW_UP" size="20" text="" />
          </graphic>
       </Button>
    </children>
