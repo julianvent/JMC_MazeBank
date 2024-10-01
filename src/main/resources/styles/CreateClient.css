@@ -27,7 +27,7 @@
     -fx-pref-height: 30;
     -fx-padding: 5;
     -fx-background-color: #888888;
-    -fx-border-radius: 5;
+    -fx-background-radius: 5;
     -fx-text-fill: #FFFFFF;
     -fx-font-size: 1.3em;
     -fx-effect: dropshadow(three-pass-box, #AAAAAA, 3, 0, 0, 3);
