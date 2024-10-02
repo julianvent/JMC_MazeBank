@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+
+
+<AnchorPane prefHeight="60.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jjvu.jmc.mazebank.controllers.client.TransactionCellController">
+   <children>
+      <VBox prefHeight="50.0" prefWidth="50.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="5.0">
+         <children>
+            <FontAwesomeIconView fx:id="inIcon" glyphName="LONG_ARROW_RIGHT" size="17" />
+            <FontAwesomeIconView fx:id="outIcon" glyphName="LONG_ARROW_LEFT" size="17" />
+         </children>
+      </VBox>
+      <Label fx:id="transactionDateLabel" text="2024-02-10" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="22.0" />
+      <Label fx:id="senderNameLabel" text="Gremlin" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="22.0" />
+      <Line endY="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="300.0" />
+      <Label fx:id="receiverNameLabel" text="Comblin" AnchorPane.leftAnchor="358.0" AnchorPane.topAnchor="22.0" />
+      <Label fx:id="amountLabel" text="2000.00" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="22.0">
+         <graphic>
+            <FontAwesomeIconView glyphName="DOLLAR" />
+         </graphic>
+      </Label>
+   </children>
+</AnchorPane>
