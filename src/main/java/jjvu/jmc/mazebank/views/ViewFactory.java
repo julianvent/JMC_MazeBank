@@ -1,5 +1,7 @@
 package jjvu.jmc.mazebank.views;
 
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +15,7 @@ import java.io.IOException;
 
 public class ViewFactory {
     // Client Views
-    private final StringProperty clientSelectedMenuItem;
+    private final ObjectProperty<ClientMenuOptions> clientSelectedMenuItem;
     private AnchorPane dashboardView;
     private AnchorPane transactionsView;
     private AnchorPane accountsView;
@@ -24,7 +26,7 @@ public class ViewFactory {
 
 
     public ViewFactory() {
-        this.clientSelectedMenuItem = new SimpleStringProperty("");
+        this.clientSelectedMenuItem = new SimpleObjectProperty<>();
         this.adminSelectedMenuItem = new SimpleStringProperty("");
     }
 
@@ -44,7 +46,7 @@ public class ViewFactory {
     /*
     * Client Views Section
     * */
-    public StringProperty getClientSelectedMenuItem() {
+    public ObjectProperty<ClientMenuOptions> getClientSelectedMenuItem() {
         return clientSelectedMenuItem;
     }
 
