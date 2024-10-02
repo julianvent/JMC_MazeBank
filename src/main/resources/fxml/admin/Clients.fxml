@@ -5,9 +5,11 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="clients_container" stylesheets="@../../styles/Clients.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jjvu.jmc.mazebank.controllers.admin.ClientsController">
-   <children>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Clients" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
-      <ListView prefHeight="650.0" prefWidth="800.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="50.0" />
-   </children>
+<AnchorPane prefHeight="750.0" prefWidth="850.0" styleClass="clients_container" stylesheets="@../../styles/Clients.css"
+            xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="jjvu.jmc.mazebank.controllers.admin.ClientsController">
+    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Clients" AnchorPane.leftAnchor="14.0"
+          AnchorPane.topAnchor="14.0"/>
+    <ListView fx:id="clientsListView" prefHeight="650.0" prefWidth="800.0" AnchorPane.leftAnchor="14.0"
+              AnchorPane.topAnchor="50.0"/>
 </AnchorPane>
