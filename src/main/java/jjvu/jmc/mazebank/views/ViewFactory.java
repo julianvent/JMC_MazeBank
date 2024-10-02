@@ -12,6 +12,8 @@ import jjvu.jmc.mazebank.controllers.client.ClientController;
 import java.io.IOException;
 
 public class ViewFactory {
+    private AccountType loginAccountType;
+
     // Client Views
     private final ObjectProperty<ClientMenuOptions> clientSelectedMenuItem;
     private AnchorPane dashboardView;
@@ -24,8 +26,17 @@ public class ViewFactory {
 
 
     public ViewFactory() {
+        this.loginAccountType = AccountType.CLIENT;
         this.clientSelectedMenuItem = new SimpleObjectProperty<>();
         this.adminSelectedMenuItem = new SimpleObjectProperty<>();
+    }
+
+    public AccountType getLoginAccountType() {
+        return loginAccountType;
+    }
+
+    public void setLoginAccountType(AccountType loginAccountType) {
+        this.loginAccountType = loginAccountType;
     }
 
     public void showLoginWindow() {
