@@ -10,30 +10,30 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="750.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jjvu.jmc.mazebank.controllers.admin.DepositController">
+<AnchorPane prefHeight="750.0" prefWidth="850.0" stylesheets="@../../styles/Deposit.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jjvu.jmc.mazebank.controllers.admin.DepositController">
    <children>
       <VBox prefHeight="570.0" prefWidth="820.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="100.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="820.0">
+            <HBox alignment="CENTER" prefHeight="60.0" prefWidth="820.0" styleClass="search_box">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Search by Payee Address:" />
                   <TextField />
                   <Button mnemonicParsing="false" text="Search">
                      <graphic>
-                        <FontAwesomeIconView glyphName="SEARCH" size="20" />
+                        <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" size="20" />
                      </graphic>
                   </Button>
                </children>
             </HBox>
-            <ListView prefHeight="200.0" prefWidth="820.0" />
-            <VBox alignment="TOP_CENTER" fillWidth="false" prefHeight="315.0" prefWidth="100.0">
+            <ListView prefHeight="200.0" prefWidth="820.0" styleClass="search_box" />
+            <VBox alignment="TOP_CENTER" fillWidth="false" prefHeight="315.0" prefWidth="100.0" styleClass="deposit_box">
                <children>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Deposit Section" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Amount" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Amount:" />
                   <TextField />
                   <Button mnemonicParsing="false" text="Deposit">
                      <graphic>
-                        <FontAwesomeIconView glyphName="MONEY" size="20" />
+                        <FontAwesomeIconView fill="WHITE" glyphName="MONEY" size="20" />
                      </graphic>
                   </Button>
                </children>
