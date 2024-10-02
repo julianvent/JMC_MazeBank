@@ -2,8 +2,6 @@ package jjvu.jmc.mazebank.views;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
@@ -21,13 +19,13 @@ public class ViewFactory {
     private AnchorPane accountsView;
 
     // Admin Views
-    private final StringProperty adminSelectedMenuItem;
+    private final ObjectProperty<AdminMenuOptions> adminSelectedMenuItem;
     private AnchorPane createClientView;
 
 
     public ViewFactory() {
         this.clientSelectedMenuItem = new SimpleObjectProperty<>();
-        this.adminSelectedMenuItem = new SimpleStringProperty("");
+        this.adminSelectedMenuItem = new SimpleObjectProperty<>();
     }
 
     public void showLoginWindow() {
@@ -102,7 +100,7 @@ public class ViewFactory {
     /*
     * Admin Views Section
     * */
-    public StringProperty getAdminSelectedMenuItemProperty() {
+    public ObjectProperty<AdminMenuOptions> getAdminSelectedMenuItemProperty() {
         return adminSelectedMenuItem;
     }
 
