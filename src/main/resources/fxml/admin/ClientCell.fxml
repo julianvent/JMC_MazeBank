@@ -7,23 +7,23 @@
 <?import javafx.scene.layout.HBox?>
 
 
-<AnchorPane prefHeight="50.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jjvu.jmc.mazebank.controllers.admin.ClientCellController">
-   <children>
-      <FontAwesomeIconView glyphName="USER" size="20" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
-      <HBox prefHeight="40.0" prefWidth="550.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="5.0">
-         <children>
-            <Label text="Comblin" />
-            <Label text="Man" />
-            <Label text="comblin_2004" />
-            <Label text="2546 9921" />
-            <Label text="2333 0213" />
-            <Label text="2024-10-02" />
-         </children>
-      </HBox>
-      <Button mnemonicParsing="false" text="Delete" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="12.0">
-         <graphic>
-            <FontAwesomeIconView glyphName="WINDOW_CLOSE_ALT" size="15" />
-         </graphic>
-      </Button>
-   </children>
+<AnchorPane prefHeight="50.0" prefWidth="750.0" styleClass="client_cell_container"
+            stylesheets="@../../styles/ClientCell.css" xmlns="http://javafx.com/javafx/23"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="jjvu.jmc.mazebank.controllers.admin.ClientCellController">
+   <FontAwesomeIconView glyphName="USER" size="20" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0"/>
+   <HBox prefHeight="40.0" prefWidth="550.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="5.0">
+      <Label fx:id="firstNameLabel" text="Comblin"/>
+      <Label fx:id="lastNameLabel" text="Man"/>
+      <Label fx:id="payeeAddressLabel" text="comblin_2004"/>
+      <Label fx:id="checkingAccountLabel" styleClass="account_display_label" text="2546 9921"/>
+      <Label fx:id="savingsAccountLabel" styleClass="account_display_label" text="2333 0213"/>
+      <Label fx:id="dateCreatedLabel" text="2024-10-02"/>
+   </HBox>
+   <Button fx:id="deleteButton" mnemonicParsing="false" styleClass="delete_button" text="Delete"
+           AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="12.0">
+      <graphic>
+         <FontAwesomeIconView glyphName="WINDOW_CLOSE_ALT" size="15"/>
+      </graphic>
+   </Button>
 </AnchorPane>
