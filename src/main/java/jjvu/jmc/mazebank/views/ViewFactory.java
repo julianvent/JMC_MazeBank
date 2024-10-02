@@ -23,6 +23,7 @@ public class ViewFactory {
     // Admin Views
     private final ObjectProperty<AdminMenuOptions> adminSelectedMenuItem;
     private AnchorPane createClientView;
+    private AnchorPane listClientsView;
 
 
     public ViewFactory() {
@@ -118,12 +119,23 @@ public class ViewFactory {
     public AnchorPane getCreateClientView() {
         if (createClientView == null) {
             try {
-                createClientView = new FXMLLoader(getClass().getResource("fxml/admin/CreateClient.fxml")).load();
+                createClientView = new FXMLLoader(getClass().getResource("/fxml/admin/CreateClient.fxml")).load();
             } catch (IOException ioe) {
                 ioe.printStackTrace();
             }
         }
         return createClientView;
+    }
+
+    public AnchorPane getListClientsView() {
+        if (listClientsView == null) {
+            try {
+                listClientsView = new FXMLLoader(getClass().getResource("/fxml/admin/ListClients.fxml")).load();
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
+        }
+        return listClientsView;
     }
 
     public void showAdminWindow() {
