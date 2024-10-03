@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.PasswordField?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="login_container" stylesheets="@../styles/Login.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="jjvu.jmc.mazebank.controllers.LoginController">
    <VBox layoutY="3.0" prefHeight="400.0" prefWidth="200.0" styleClass="login_logo_container" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
       <FontAwesomeIconView glyphName="BANK" size="30" />
@@ -20,7 +21,7 @@
       <Label fx:id="payeeAddressLabel" text="Payee Address:" />
       <TextField fx:id="payeeAddressField" styleClass="input_field" />
       <Label text="Password:" />
-      <TextField fx:id="passwordField" styleClass="input_field" />
+      <PasswordField fx:id="passwordField" styleClass="input_field" />
       <Button fx:id="loginButton" mnemonicParsing="false" text="Access" />
       <Label fx:id="errorLabel" styleClass="error_label" />
    </VBox>

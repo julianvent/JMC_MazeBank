@@ -36,11 +36,22 @@ public class LoginController implements Initializable {
     private void onLogin() {
         Stage stage = (Stage) errorLabel.getScene().getWindow(); // get the stage from a control
 
-        Model.getInstance().getViewFactory().closeStage(stage);
 
-        if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.CLIENT)
-            Model.getInstance().getViewFactory().showClientWindow();
-        else
+        if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.CLIENT) {
+            // Evaluate Cliente Login Credentials
+            Model.getInstance().evaluateClientCredentials(payeeAddressField.getText(), passwordField.getText());
+            if (Model.getInstance().getClientLoginSuccessFlag()) {
+                // Close the Login Stage
+                Model.getInstance().getViewFactory().closeStage(stage);
+                Model.getInstance().getViewFactory().showClientWindow();
+            } else {
+                payeeAddressField.setText("");
+                passwordField.setText("");
+                errorLabel.setText("No Such Login Credentials");
+            }
+        }
+        else {
             Model.getInstance().getViewFactory().showAdminWindow();
+        }
     }
 }
