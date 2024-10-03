@@ -27,7 +27,7 @@ public class LoginController implements Initializable {
         accountSelector.setValue(Model.getInstance().getViewFactory().getLoginAccountType());
 
         accountSelector.valueProperty().addListener(observable ->
-                Model.getInstance().getViewFactory().setLoginAccountType(accountSelector.getValue())
+                setAccountSelector()
         );
 
         loginButton.setOnAction(actionEvent -> onLogin());
@@ -38,7 +38,7 @@ public class LoginController implements Initializable {
 
 
         if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.CLIENT) {
-            // Evaluate Cliente Login Credentials
+            // Evaluate Client Login Credentials
             Model.getInstance().evaluateClientCredentials(payeeAddressField.getText(), passwordField.getText());
             if (Model.getInstance().getClientLoginSuccessFlag()) {
                 // Close the Login Stage
@@ -51,7 +51,29 @@ public class LoginController implements Initializable {
             }
         }
         else {
-            Model.getInstance().getViewFactory().showAdminWindow();
+            // Evaluate Admin Login Credentials
+            Model.getInstance().evaluateAdminCredentials(payeeAddressField.getText(), passwordField.getText());
+            if (Model.getInstance().getAdminLoginSuccessFlag()) {
+                // Close the login stage
+                Model.getInstance().getViewFactory().closeStage(stage);
+                Model.getInstance().getViewFactory().showAdminWindow();
+            } else {
+                payeeAddressField.setText("");
+                passwordField.setText("");
+                errorLabel.setText("No Such Login Credentials");
+            }
         }
+    }
+
+    private void setAccountSelector() {
+        Model.getInstance().getViewFactory().setLoginAccountType(accountSelector.getValue());
+        // Change Payee Address Label to Username
+        if (accountSelector.getValue() == AccountType.ADMIN) {
+            payeeAddressLabel.setText("Username: ");
+        } else {
+            payeeAddressLabel.setText("Payee Address: ");
+        }
+        // Clear error
+        errorLabel.setText("");
     }
 }

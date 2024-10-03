@@ -11,13 +11,13 @@ public class Model {
     private static Model model;
     private final ViewFactory viewFactory;
     private final DatabaseDriver databaseDriver;
-    private AccountType loginAccountType = AccountType.CLIENT;
 
     // Client Data Section
     private Client client;
     private boolean clientLoginSuccessFlag;
 
     // Admin Data Section
+    private boolean adminLoginSuccessFlag;
 
     private Model() {
         this.viewFactory = new ViewFactory();
@@ -28,6 +28,7 @@ public class Model {
         this.client = new Client("", "", "", null, null, null);
 
         // Admin Data Section
+        this.adminLoginSuccessFlag = false;
     }
 
     // Singleton
@@ -45,14 +46,6 @@ public class Model {
 
     public DatabaseDriver getDatabaseDriver() {
         return databaseDriver;
-    }
-
-    public AccountType getLoginAccountType() {
-        return loginAccountType;
-    }
-
-    public void setLoginAccountType(AccountType loginAccountType) {
-        this.loginAccountType = loginAccountType;
     }
 
     /*
@@ -91,6 +84,30 @@ public class Model {
             }
         } catch (SQLException sqle) {
             sqle.printStackTrace();
+        }
+    }
+
+    /*
+    * Admin Method Section
+    * */
+
+    public boolean getAdminLoginSuccessFlag() {
+        return adminLoginSuccessFlag;
+    }
+
+    public void setAdminLoginSuccessFlag(boolean flag) {
+        this.adminLoginSuccessFlag = flag;
+    }
+
+    public void evaluateAdminCredentials(String username, String password) {
+        ResultSet resultSet = databaseDriver.getAdminData(username, password);
+
+        try {
+            if (resultSet.isBeforeFirst()) {
+                this.adminLoginSuccessFlag = true;
+            }
+        } catch (SQLException ioe) {
+            ioe.printStackTrace();
         }
     }
 }
