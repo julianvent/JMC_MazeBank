@@ -1,5 +1,7 @@
 package jjvu.jmc.mazebank.models;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import jjvu.jmc.mazebank.views.AccountType;
 import jjvu.jmc.mazebank.views.ViewFactory;
 
@@ -18,6 +20,7 @@ public class Model {
 
     // Admin Data Section
     private boolean adminLoginSuccessFlag;
+    private final ObservableList<Client> clients;
 
     private Model() {
         this.viewFactory = new ViewFactory();
@@ -29,6 +32,7 @@ public class Model {
 
         // Admin Data Section
         this.adminLoginSuccessFlag = false;
+        this.clients = FXCollections.observableArrayList();
     }
 
     // Singleton
@@ -75,10 +79,16 @@ public class Model {
                 this.client.lastNameProperty().set(resultSet.getString("LastName"));
                 this.client.payeeAddressProperty().set(resultSet.getString("PayeeAddress"));
                 String[] dateParts = resultSet.getString("Date").split("-");
+
                 LocalDate date = LocalDate.of(
                         Integer.parseInt(dateParts[0]), Integer.parseInt(dateParts[1]), Integer.parseInt(dateParts[2])
                 );
                 this.client.dateCreatedProperty().set(date);
+
+                checkingAccount = getCheckingAccount(payeeAddress);
+                savingsAccount = getSavingsAccount(payeeAddress);
+                this.client.checkingAccountProperty().set(checkingAccount);
+                this.client.savingsAccountProperty().set(savingsAccount);
 
                 this.clientLoginSuccessFlag = true;
             }
@@ -90,7 +100,6 @@ public class Model {
     /*
     * Admin Method Section
     * */
-
     public boolean getAdminLoginSuccessFlag() {
         return adminLoginSuccessFlag;
     }
@@ -109,5 +118,69 @@ public class Model {
         } catch (SQLException ioe) {
             ioe.printStackTrace();
         }
+    }
+
+    public ObservableList<Client> getClients() {
+        return clients;
+    }
+
+    public void setClients() {
+        CheckingAccount checkingAccount;
+        SavingsAccount savingsAccount;
+
+        ResultSet resultSet = databaseDriver.getAllClientsData();
+
+        try {
+            while (resultSet.next()) {
+                String firstName = resultSet.getString("FirstName");
+                String lastName = resultSet.getString("LastName");
+                String payeeAddress = resultSet.getString("PayeeAddress");
+                String[] dateParts = resultSet.getString("Date").split("-");
+                LocalDate date = LocalDate.of(Integer.parseInt(dateParts[0]), Integer.parseInt(dateParts[1]), Integer.parseInt(dateParts[2]));
+                checkingAccount = getCheckingAccount(payeeAddress);
+                savingsAccount = getSavingsAccount(payeeAddress);
+
+                clients.add(new Client(firstName, lastName, payeeAddress, checkingAccount, savingsAccount, date));
+            }
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        }
+    }
+
+    /*
+    * Utility Methods
+    */
+    public CheckingAccount getCheckingAccount(String payeeAddress) {
+        CheckingAccount checkingAccount = null;
+
+        ResultSet resultSet = databaseDriver.getCheckingAccountData(payeeAddress);
+
+        try {
+            String accountNumber = resultSet.getString("AccountNumber");
+            int transactionLimit = (int)resultSet.getDouble("TransactionLimit");
+            double balance = resultSet.getDouble("Balance");
+            checkingAccount = new CheckingAccount(payeeAddress, accountNumber, balance, transactionLimit);
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        }
+
+        return checkingAccount;
+    }
+
+    public SavingsAccount getSavingsAccount(String payeeAddress) {
+        SavingsAccount savingsAccount = null;
+
+        ResultSet resultSet = databaseDriver.getSavingsAccountData(payeeAddress);
+
+        try {
+            String accountNumber = resultSet.getString("AccountNumber");
+            double withdrawalLimit = resultSet.getDouble("WithdrawalLimit");
+            double balance = resultSet.getDouble("Balance");
+            savingsAccount = new SavingsAccount(payeeAddress, accountNumber, balance, withdrawalLimit);
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        }
+
+        return savingsAccount;
     }
 }
