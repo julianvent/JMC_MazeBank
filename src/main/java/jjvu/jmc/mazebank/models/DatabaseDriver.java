@@ -139,7 +139,7 @@ public class DatabaseDriver {
 
         try {
             statement = this.connection.createStatement();
-            resultSet = statement.executeQuery("SELECT * FROM SavingsAccount WHERE Owner='"+payeeAddress+"';");
+            resultSet = statement.executeQuery("SELECT * FROM SavingsAccounts WHERE Owner='"+payeeAddress+"';");
         } catch (SQLException sqle) {
             sqle.printStackTrace();
         }
