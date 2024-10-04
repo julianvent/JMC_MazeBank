@@ -3,9 +3,14 @@ package jjvu.jmc.mazebank.views;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import jjvu.jmc.mazebank.controllers.admin.AdminController;
 import jjvu.jmc.mazebank.controllers.client.ClientController;
@@ -54,6 +59,26 @@ public class ViewFactory {
         createStage(loader);
     }
 
+    public void showMessageWindow(String payeeAddress, String senderMessage) {
+        StackPane pane = new StackPane();
+        VBox vBox = new VBox(5);
+        vBox.setAlignment(Pos.CENTER);
+
+        Label sender = new Label(payeeAddress);
+        Label message = new Label(senderMessage);
+
+        vBox.getChildren().addAll(sender, message);
+        pane.getChildren().add(vBox);
+
+        Scene scene = new Scene(pane, 300, 100);
+        Stage stage = new Stage();
+        stage.getIcons().add(new Image(String.valueOf(getClass().getResource("/Images/icon.png"))));
+        stage.setResizable(false);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Message");
+        stage.setScene(scene);
+        stage.show();
+    }
 
     /*
     * Client Views Section

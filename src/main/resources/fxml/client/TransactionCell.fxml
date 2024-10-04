@@ -1,31 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 
-
-<AnchorPane prefHeight="60.0" prefWidth="550.0" styleClass="cell_container"
-            stylesheets="@../../styles/TransactionCell.css" xmlns="http://javafx.com/javafx/23"
-            xmlns:fx="http://javafx.com/fxml/1" >
-   <VBox prefHeight="50.0" prefWidth="50.0" styleClass="transaction_icon_container" AnchorPane.bottomAnchor="5.0"
-         AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="5.0">
-      <FontAwesomeIconView fx:id="inIcon" glyphName="LONG_ARROW_RIGHT" size="17"/>
-      <FontAwesomeIconView fx:id="outIcon" glyphName="LONG_ARROW_LEFT" size="17"/>
+<AnchorPane prefHeight="60.0" prefWidth="550.0" styleClass="cell_container" stylesheets="@../../styles/TransactionCell.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1">
+   <VBox prefHeight="50.0" prefWidth="50.0" styleClass="transaction_icon_container" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="5.0">
+      <FontAwesomeIconView fx:id="inIcon" glyphName="LONG_ARROW_RIGHT" size="17" />
+      <FontAwesomeIconView fx:id="outIcon" glyphName="LONG_ARROW_LEFT" size="17" />
    </VBox>
-   <Label fx:id="transactionDateLabel" styleClass="transaction_date_label" text="2024-02-10"
-          AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="22.0"/>
-   <Label fx:id="senderNameLabel" styleClass="transaction_payee_address_label" text="Gremlin"
-          AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="22.0"/>
-   <Line endY="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="300.0"/>
-   <Label fx:id="receiverNameLabel" styleClass="transaction_payee_address_label" text="Comblin"
-          AnchorPane.leftAnchor="358.0" AnchorPane.topAnchor="22.0"/>
-   <Label fx:id="amountLabel" styleClass="transaction_amount_label" text="2000.00" AnchorPane.rightAnchor="14.0"
-          AnchorPane.topAnchor="16.0">
+   <Label fx:id="transactionDateLabel" styleClass="transaction_date_label" text="2024-02-10" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="22.0" />
+   <Label fx:id="senderNameLabel" styleClass="transaction_payee_address_label" text="Gremlin" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="22.0" />
+   <Line endY="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="300.0" />
+   <Label fx:id="receiverNameLabel" styleClass="transaction_payee_address_label" text="Comblin" AnchorPane.leftAnchor="358.0" AnchorPane.topAnchor="22.0" />
+   <Label fx:id="amountLabel" styleClass="transaction_amount_label" text="2000.00" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="16.0">
       <graphic>
-         <FontAwesomeIconView glyphName="DOLLAR"/>
+         <FontAwesomeIconView glyphName="DOLLAR" />
       </graphic>
    </Label>
+   <Button fx:id="messageButton" mnemonicParsing="false" styleClass="message_button" AnchorPane.rightAnchor="90.0" AnchorPane.topAnchor="18.0">
+      <graphic>
+         <FontAwesomeIconView glyphName="BELL" size="14" text="" />
+      </graphic>
+   </Button>
 </AnchorPane>

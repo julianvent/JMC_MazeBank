@@ -35,3 +35,15 @@
 .transaction_amount_label FontAwesomeIconView {
     -fx-fill: #FFFFFF;
 }
+
+.message_button {
+    -fx-background-color: #FFFFFF;
+}
+
+.message_button FontAwesomeIconView {
+    -fx-fill: #132A13;
+}
+
+.message_button:hover {
+    -fx-cursor: hand;
+}
