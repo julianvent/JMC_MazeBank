@@ -8,6 +8,8 @@ import jjvu.jmc.mazebank.models.Model;
 import jjvu.jmc.mazebank.views.TransactionCellFactory;
 
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 
@@ -33,6 +35,7 @@ public class DashboardController implements Initializable {
         initializeLatestTransactions();
         transactionListView.setItems(Model.getInstance().getLatestTransactions());
         transactionListView.setCellFactory(e -> new TransactionCellFactory());
+        sendButton.setOnAction(actionEvent -> onSendMoney());
     }
 
     private void bindData() {
@@ -48,5 +51,37 @@ public class DashboardController implements Initializable {
         if (Model.getInstance().getLatestTransactions().isEmpty()) {
             Model.getInstance().setLatestTransactions();
         }
+    }
+
+    private void onSendMoney() {
+        String receiver = payeeField.getText();
+        double amount = Double.parseDouble(amountField.getText());
+        String message = messageField.getText();
+        String sender = Model.getInstance().getClient().payeeAddressProperty().get();
+        ResultSet resultSet = Model.getInstance().getDatabaseDriver().searchClient(receiver);
+
+        try {
+            if (resultSet.isBeforeFirst()) {
+                Model.getInstance().getDatabaseDriver().updateBalance(receiver, amount, "ADD");
+            }
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        }
+
+        // Subtract from sender's savings account
+        Model.getInstance().getDatabaseDriver().updateBalance(sender, amount, "SUBTRACT");
+
+        // Update the savings account balance in the client object
+        Model.getInstance().getClient().savingsAccountProperty().get().setBalance(
+                Model.getInstance().getDatabaseDriver().getSavingsAccountBalance(sender)
+        );
+
+        // Record new transaction
+        Model.getInstance().getDatabaseDriver().newTransaction(sender, receiver, amount, message);
+
+        // Clear fields
+        payeeField.setText("");
+        amountField.setText("");
+        messageField.setText("");
     }
 }

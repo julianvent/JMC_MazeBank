@@ -36,7 +36,6 @@ public class LoginController implements Initializable {
     private void onLogin() {
         Stage stage = (Stage) errorLabel.getScene().getWindow(); // get the stage from a control
 
-
         if (Model.getInstance().getViewFactory().getLoginAccountType() == AccountType.CLIENT) {
             // Evaluate Client Login Credentials
             Model.getInstance().evaluateClientCredentials(payeeAddressField.getText(), passwordField.getText());
