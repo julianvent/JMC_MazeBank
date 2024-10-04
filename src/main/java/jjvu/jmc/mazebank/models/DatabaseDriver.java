@@ -29,6 +29,19 @@ public class DatabaseDriver {
         return resultSet;
     }
 
+    public ResultSet getTransactions(String payeeAddress, int limit) {
+        Statement statement;
+        ResultSet resultSet = null;
+
+        try {
+            statement = this.connection.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM Transactions WHERE Sender='"+payeeAddress+"' OR Receiver='"+payeeAddress+"' LIMIT "+limit +";");
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        }
+        return resultSet;
+    }
+
     /*
      * Admin Section
      * */

@@ -112,7 +112,7 @@
     -fx-scale-x: 0;
 }
 
-.list_cell {
+.list-cell {
     -fx-background-color: #EEEEEE;
     -fx-padding: 15 0 15 0;
 }
