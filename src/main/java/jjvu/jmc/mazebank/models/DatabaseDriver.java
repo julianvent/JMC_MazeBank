@@ -100,10 +100,34 @@ public class DatabaseDriver {
         return resultSet;
     }
 
+    public ResultSet searchClient(String payeeAddress) {
+        Statement statement;
+        ResultSet resultSet = null;
+
+        try {
+            statement = this.connection.createStatement();
+            resultSet = statement.executeQuery("SELECT * FROM Clients WHERE PayeeAddress='"+payeeAddress+"';");
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    public void depositSavings(String payeeAddress, double amount) {
+        Statement statement;
+
+        try {
+            statement = this.connection.createStatement();
+            statement.executeUpdate("UPDATE SavingsAccounts SET Balance="+amount+" WHERE Owner='"+payeeAddress+"';");
+        } catch (SQLException sqle) {
+            sqle.printStackTrace();
+        }
+    }
 
     /*
      * Utility Methods
      * */
+
     public int getLastClientID() {
         Statement statement;
         ResultSet resultSet;
